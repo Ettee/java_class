@@ -8,10 +8,13 @@ package hibernate.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
  *
@@ -30,6 +33,8 @@ public class SanhCuoi implements Serializable {
     private BigDecimal price_sanhcuoi_sang_cuoituan;
     private BigDecimal price_sanhcuoi_trua_cuoituan;
     private BigDecimal price_sanhcuoi_toi_cuoituan;
+    @OneToMany(mappedBy = "id_sanh_cuoi")
+    private Set<Booking> booking;
 
     /**
      * @return the id_sanh_cuoi
@@ -142,4 +147,12 @@ public class SanhCuoi implements Serializable {
     public void setPrice_sanhcuoi_toi_cuoituan(BigDecimal price_sanhcuoi_toi_cuoituan) {
         this.price_sanhcuoi_toi_cuoituan = price_sanhcuoi_toi_cuoituan;
     }
+
+	private Set<Booking> getBooking() {
+		return booking;
+	}
+
+	private void setBooking(Set<Booking> booking) {
+		this.booking = booking;
+	}
 }

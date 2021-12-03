@@ -1,1 +1,10 @@
+hibernate\pojo\Booking.class
+hibernate\HibernateTest.class
+hibernate\pojo\User.class
+hibernate\HibernateUtils.class
+hibernate\pojo\DichVu.class
+hibernate\pojo\SanhCuoi.class
 com\mycompany\quanlynhahang\Startup.class
+hibernate\pojo\BookingDichVu.class
+hibernate\pojo\Menu.class
+hibernate\pojo\UserType.class

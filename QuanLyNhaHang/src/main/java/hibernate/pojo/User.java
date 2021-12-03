@@ -8,10 +8,15 @@ package hibernate.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
  *
@@ -25,9 +30,14 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_user;
     private String name_user;
-    private int type_user;
+    @ManyToOne()
+    @JoinColumn(name="id_type")
+    private UserType type_user;
+    
     private String avarta;
     private String password_user;
+    @OneToMany(mappedBy="id_user")
+    private Set <Booking> booking;
 
     /**
      * @return the id_user
@@ -60,14 +70,14 @@ public class User implements Serializable {
     /**
      * @return the type_user
      */
-    public int getType_user() {
+    public UserType getType_user() {
         return type_user;
     }
 
     /**
      * @param type_user the type_user to set
      */
-    public void setType_user(int type_user) {
+    public void setType_user(UserType type_user) {
         this.type_user = type_user;
     }
 
@@ -98,4 +108,12 @@ public class User implements Serializable {
     public void setPassword_user(String password_user) {
         this.password_user = password_user;
     }
+
+	private Set <Booking> getBooking() {
+		return booking;
+	}
+
+	private void setBooking(Set <Booking> booking) {
+		this.booking = booking;
+	}
 }

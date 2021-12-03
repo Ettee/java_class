@@ -8,10 +8,13 @@ package hibernate.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +28,8 @@ public class UserType implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_type;
     private int name_type;
+    @OneToMany(mappedBy="type_user")
+    private List<User> user;
 
     /**
      * @return the id_type
@@ -53,4 +58,12 @@ public class UserType implements Serializable {
     public void setName_type(int name_type) {
         this.name_type = name_type;
     }
+
+	private List<User> getUser() {
+		return user;
+	}
+
+	private void setUser(List<User> user) {
+		this.user = user;
+	}
 }
