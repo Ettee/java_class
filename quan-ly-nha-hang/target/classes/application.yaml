@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://127.0.0.1/quanlynhahang
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 12345678
+  servlet.multipart.max-file-size: 2MB
+  jpa:
+     hibernate: 
+        dll-auto: update
+    
+server.servlet.context-path: /quan-ly-nha-hang
+application-version: 1.0.0-SNAPSHOT
+application-name: QuanLyNhaHang
+
